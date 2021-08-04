@@ -116,13 +116,6 @@ int main(void) {
 		//adcInit();
 		timelapse++;
 		printf("Valor temperatura: %d \n",*p2ADC0_RA);
-//		printf("tiempo: %d \n",(clock() - time)/CLOCKS_PER_SEC);
-//		printf("booleano: %d \n",(float)((clock() - time)/CLOCKS_PER_SEC) >= MAX_TIME);
-//		printf("booleano float in: %d \n",((float)(clock() - time)/CLOCKS_PER_SEC) >= MAX_TIME);
-//		printf("Tiempo trans: %d \n",((float)(clock() - time)));
-//		printf("valor clock: %d \n",(float)clock());
-//		printf("valor time: %d \n",time);
-		//printf("Tiempo trans %d \n",timelapse);
 		if (*p2ADC0_RA >= LIMIT_VALUE && !limitBroken){
 			//printf("Se reinicia la cuenta\n");
 			//time = clock();
@@ -130,10 +123,8 @@ int main(void) {
 			timelapse=0;
 		}else if (*p2ADC0_RA >= LIMIT_VALUE && timelapse >= MAX_TIME){
 			//BOUNCE LED FUNCTION
-			//printf("%Boton> %d\n",digitalRead('A',1));
 			while(!digitalRead('A',1)){
 				counter = 1000000;
-				//printf("LLegamos a prender los leds\n");
 				digitalWrite('B', 18, OFF);
 				digitalWrite('B', 19, OFF);
 				digitalWrite('A', 13, OFF);
@@ -173,7 +164,6 @@ int main(void) {
 				}
 				actualState ++;
 				while(counter){
-					//printf("Counter: %d\n", counter);
 					counter--;
 				}
 			}
